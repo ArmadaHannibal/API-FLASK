@@ -26,7 +26,7 @@ def listaleatoires (array) :
         valeur_aleatoire = random.choice(ma_liste)
         return valeur_aleatoire
 
-def operation_aleatoire(booleen, liste, mini, max):
+def operation_aleatoire(booleen, liste, mini, maxi):
     if booleen == '1' :
         if not liste : 
             print('Tableau vide !');
@@ -37,15 +37,25 @@ def operation_aleatoire(booleen, liste, mini, max):
         if not liste : 
             print('Tableau vide !');
         else :
-            aleatoiresnb1 = random.randint(mini, maxi);
-            aleatoiresnb2 = random.randint(mini, maxi);
-            resultat = {
-                'valeur 1 : ' : aleatoiresnb1,
-                'valeur 2 : ' : aleatoiresnb2,
-                'resultat : ' : aleatoiresnb1 + aleatoiresnb2
-            }
-            return resultat
-
+            index_max = len(liste) - 1
+            if index_max == maxi : 
+                aleatoiresnb1 = random.randint(mini, maxi);
+                aleatoiresnb2 = random.randint(mini, maxi);
+                resultat = {
+                    'valeur 1 : ' : aleatoiresnb1,
+                    'valeur 2 : ' : aleatoiresnb2,
+                    'resultat : ' : aleatoiresnb1 + aleatoiresnb2
+                }
+                return resultat
+            elif index_max != maxi :
+                aleatoiresnb1 = random.randint(mini, index_max);
+                aleatoiresnb2 = random.randint(mini, index_max);
+                resultat = {
+                    'valeur 1 : ' : aleatoiresnb1,
+                    'valeur 2 : ' : aleatoiresnb2,
+                    'resultat : ' : aleatoiresnb1 + aleatoiresnb2
+                }
+                return resultat
 
 ma_liste = []
 
